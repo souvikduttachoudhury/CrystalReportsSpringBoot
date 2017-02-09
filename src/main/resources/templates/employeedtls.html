@@ -1,0 +1,37 @@
+  
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<div class="wrapper" style="margin-left:30%;margin-top:1%">
+	<h2>&nbsp;&nbsp;&nbsp;&nbsp;List of Employees</h2>
+	<table style="left:33%;top:33%;border-spacing:8px">
+    <thead>
+	<tr>
+			<td>ID</td>
+			<td>Name</td>
+			<td>Salary</td>
+	</tr>
+	</thead>
+		<tr th:each="employee:${Employees}">
+			<td th:text="${employee.id}"></td>
+			<td th:text="${employee.name}"></td>
+			<td th:text="${employee.salary}"></td>
+			<td th:with="identity=${employee.id}">
+			<form name="deleteform" th:action="delete">
+				<input type="hidden" name="id" th:value="${identity}"/>
+				<button  type="submit">Delete</button>
+			</form>
+			</td>
+		</tr>
+	</table>
+	<form name="Generate_Report" action="generate">
+				<button  type="submit">Publish Report</button><br/>
+				<div id="msg" th:text="${message}" style="color:red"></div>
+	</form>
+	</div>
+</body>
+</html>

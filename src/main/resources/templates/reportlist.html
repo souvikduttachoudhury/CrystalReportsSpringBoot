@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Download</title>
+<script type="text/javascript">
+	function down(r){
+		var url="dwld"+"/"+r;
+		window.open(url,"_self");
+	}
+</script>
+</head>
+<body>
+<div class="wrapper" style="margin-left:30%;margin-top:1%">
+<h2>&nbsp;&nbsp;&nbsp;&nbsp;Generated Reports</h2>
+	<table>
+		<tr th:each="report:${reports}">
+			<td style="padding:20px"><a href="#" style="text-decoration:none" onclick="down('${report}')" th:text="${report}"></a></td>
+		</tr>
+	</table>
+</div>	
+</body>
+</html>
