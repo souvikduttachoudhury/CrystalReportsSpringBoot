@@ -49,7 +49,6 @@ public class EmployeeController {
 	@RequestMapping("/delete")
 	public String remove(@RequestParam  String id,Map<String,Object> model){
 		es.removeEmployeeByID(Integer.parseInt(id));
-		System.out.println("Deleted");
 		List<Employee> le=es.getEmployeeList();
 		model.put("Employees", le);
 		return "employeedtls";
