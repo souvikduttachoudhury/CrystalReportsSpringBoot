@@ -1,0 +1,19 @@
+    
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Employee Details</title>
+</head>
+<body>
+	<div class="wrapper" style="margin-left:30%;margin-top:12.5%">
+	<h1>Welcome to Kroger</h1>
+	<form id="test" th:action="@{/save}" th:object="${Employee}" action="#" method="post">
+		<label>Name&nbsp;&nbsp;</label><input type="text" th:field="*{name}" placeholder="enter the name of the employee"/><br/><br/><br/>
+		<label>Salary&nbsp;</label><input type="number" th:field="*{salary}"  placeholder="enter the salary in rupees"/><br/><br/><br/>
+		<!-- <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/> -->
+		<label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><input type="submit" value="Save"/>
+	</form>
+	</div>
+</body>
+</html>
